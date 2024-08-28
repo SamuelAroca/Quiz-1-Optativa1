@@ -30,10 +30,45 @@ env.build('''
 ''')
 
 env.build('''
-(defrule aventura-alto-presupuesto
+(defrule aventura-alto-presupuesto-individual
     (cliente (preferencias aventura) (tipo_viaje individual) (presupuesto alto))
     =>
+    (assert (recomendacion (destino "Viaje a egipto"))))
+''')
+
+env.build('''
+(defrule aventura-medio-presupuesto-individual
+    (cliente (preferencias aventura) (tipo_viaje individual) (presupuesto medio))
+    =>
     (assert (recomendacion (destino "Safari en África"))))
+''')
+
+env.build('''
+(defrule aventura-bajo-presupuesto-individual
+    (cliente (preferencias aventura) (tipo_viaje individual) (presupuesto bajo))
+    =>
+    (assert (recomendacion (destino "Lanzarse de paracaídas"))))
+''')
+
+env.build('''
+(defrule aventura-alto-presupuesto-familiar
+    (cliente (preferencias aventura) (tipo_viaje familiar) (presupuesto alto))
+    =>
+    (assert (recomendacion (destino "Disney World"))))
+''')
+
+env.build('''
+(defrule aventura-medio-presupuesto-familiar
+    (cliente (preferencias aventura) (tipo_viaje familiar) (presupuesto medio))
+    =>
+    (assert (recomendacion (destino "Desierto de la Tatacoa"))))
+''')
+
+env.build('''
+(defrule aventura-bajo-presupuesto-familiar
+    (cliente (preferencias aventura) (tipo_viaje familiar) (presupuesto bajo))
+    =>
+    (assert (recomendacion (destino "Comfama Arvi"))))
 ''')
 
 env.build('''
