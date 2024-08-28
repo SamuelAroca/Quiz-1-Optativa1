@@ -2,11 +2,8 @@ import clips
 
 env = clips.Environment()
 
-# Plantilla de cliente y recomendación
 env.build('(deftemplate cliente (slot preferencias) (slot tipo_viaje) (slot presupuesto))')
 env.build('(deftemplate recomendacion (slot destino))')
-
-# Reglas de recomendación
 
 env.build('''
 (defrule aventura-bajo-presupuesto-grupal
@@ -72,10 +69,24 @@ env.build('''
 ''')
 
 env.build('''
-(defrule playa-alto-presupuesto
+(defrule playa-alto-presupuesto-familiar
     (cliente (preferencias playa) (tipo_viaje familiar) (presupuesto alto))
     =>
     (assert (recomendacion (destino "Resort de lujo en el Caribe"))))
+''')
+
+env.build('''
+(defrule playa-medio-presupuesto-familiar
+    (cliente (preferencias playa) (tipo_viaje familiar) (presupuesto medio))
+    =>
+    (assert (recomendacion (destino "Decameron Cartegena"))))
+''')
+
+env.build('''
+(defrule playa-bajo-presupuesto-familiar
+    (cliente (preferencias playa) (tipo_viaje familiar) (presupuesto bajo))
+    =>
+    (assert (recomendacion (destino "Hotel a dos cuadras de la playa"))))
 ''')
 
 env.build('''
