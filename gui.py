@@ -3,6 +3,9 @@ from tkinter import ttk
 
 from destinos_perfectos import generar_recomendacion
 
+# Samuel Aroca
+# Jim Diaz del Castillo
+
 def recomendar_destinos():
     preferencias = preferencias_var.get() if preferencias_var.get() else None
     tipo_viaje = tipo_viaje_var.get() if tipo_viaje_var.get() else None
